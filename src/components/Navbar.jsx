@@ -7,7 +7,8 @@ import dummyImg3 from "../assets/dummyProfile3.png"
 const profiles = [
     {
         name: "John Doe",
-        img: dummyImg1
+        img: dummyImg1,
+        // active: true,
     },
     {
         name: "Jane Doe",
@@ -15,7 +16,8 @@ const profiles = [
     },
     {
         name: "John Smith",
-        img: dummyImg3
+        img: dummyImg3,
+        active: true,
     }
 ]
 
@@ -56,10 +58,14 @@ const links = [
 
 const Navbar = () => {
     const [active, setActive] = useState('/')
+    const [isMenuOpen, setIsMenuOpen] = useState(true)
     return (
-        <nav className='absolute left-1/2 -translate-x-1/2 top-5 w-[80%] min-h-20 flex items-center justify-between bg-white shadow-md px-5 py-1'>
-            <span className='text-[30px] font-[300]'>
-                <svg width="50" height="65" className='inline mr-2' viewBox="0 0 50 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <nav className='fixed z-10 top-0 left-1/2 -translate-x-1/2 w-screen md:w-screen lg:w-[90%] xl:w-4/5 bg-white flex items-center justify-between p-3 gap-5 rounded-b-lg'>
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 50 50" className='size-6 sm:hidden' onClick={() => setIsMenuOpen(true)}>
+                <path d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z"></path>
+            </svg>
+            <div className='flex text-[25px] font-[400]'>
+                <svg className=' size-10 mr-2' viewBox="0 0 50 65" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 6.37287L11.0895 65L7.26313 25.76L26.1742 24.5027L26.1391 17.9351L33.6022 0L26.4818 11.9463L0 6.37287Z" fill="url(#paint0_linear_32_2731)" />
                     <path d="M30.244 35.5837L33.6065 0.00390625L27.9112 26.3965L15.1313 27.091L16.1543 40.6886L11.0938 64.9993L18.9505 38.485L30.244 35.5837Z" fill="url(#paint1_linear_32_2731)" />
                     <path d="M32.4667 43.9801L32.8245 37.0338L22.412 39.5291L22.3912 47.3686L11.0938 65L25.2212 46.6482L32.4667 43.9801ZM34.3636 40.7984L44.0346 37.6544L45.0179 29.3265L34.6575 30.7187L34.3636 40.7984ZM38.5074 28.9085L45.6676 27.9669L46.6978 21.1368L41.4332 20.8889L33.6065 0L39.0997 20.5786L38.5074 28.9085Z" fill="url(#paint2_linear_32_2731)" />
@@ -83,27 +89,47 @@ const Navbar = () => {
                         </linearGradient>
                     </defs>
                 </svg>
-                litgit
-            </span>
-            <ul className='w-3/5 flex items-center justify-evenly'>
+                <span>litgit</span>
+            </div>
+            <div className={`fixed ${isMenuOpen ? "translate-x-0" : "-translate-x-full"} sm:static transition-all h-screen sm:h-fit bg-white top-0 left-0 flex flex-col sm:flex-row p-10 py-20 sm:p-2 sm:py-2 gap-10 `}>
                 {links.map((link, index) => (
                     <NavLink to={link.link} key={index} onClick={() => setActive(link.link)} className={`hover:border-b-[2px] hover:border-primary ${active === link.link ? 'border-b-[2px] border-primary' : ''} ${"flex"}`}>
                         {/* {link.svg} */}
-                        <span>{link.name}</span>
+                        <span className='text-md font-[500]'>{link.name}</span>
                     </NavLink>
                 ))}
-            </ul>
-            <div className='accounts flex items-center gap-2'>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" className='absolute top-1 right-1 size-10 sm:hidden' viewBox="0 0 64 64" onClick={() => setIsMenuOpen(false)}>
+                    <path d="M 32 10 C 19.85 10 10 19.85 10 32 C 10 44.15 19.85 54 32 54 C 44.15 54 54 44.15 54 32 C 54 19.85 44.15 10 32 10 z M 32 14 C 41.941 14 50 22.059 50 32 C 50 41.941 41.941 50 32 50 C 22.059 50 14 41.941 14 32 C 14 22.059 22.059 14 32 14 z M 25.636719 23.636719 C 25.124969 23.636719 24.613156 23.832156 24.222656 24.222656 C 23.441656 25.003656 23.441656 26.269781 24.222656 27.050781 L 29.171875 32 L 24.222656 36.949219 C 23.441656 37.730219 23.441656 38.996344 24.222656 39.777344 C 25.003656 40.558344 26.269781 40.558344 27.050781 39.777344 L 32 34.828125 L 36.949219 39.777344 C 37.730219 40.558344 38.996344 40.558344 39.777344 39.777344 C 40.558344 38.996344 40.558344 37.730219 39.777344 36.949219 L 34.828125 32 L 39.777344 27.050781 C 40.558344 26.269781 40.558344 25.003656 39.777344 24.222656 C 38.996344 23.441656 37.730219 23.441656 36.949219 24.222656 L 32 29.171875 L 27.050781 24.222656 C 26.660281 23.832156 26.148469 23.636719 25.636719 23.636719 z"></path>
+                </svg>
+
+                {/* <button className=' mb-[20%] flex items-center justify-center text-lg font-[600] border-primary border-[2px] rounded-md w-fit py-1.5 px-4 self-center'>
+                    <span>Logout </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" className='size-6' viewBox="0 0 24 24" id="logout"><path d="M21.9 10.6c-.1-.1-.1-.2-.2-.3l-2-2c-.4-.4-1-.4-1.4 0s-.4 1 0 1.4l.3.3H16c-.6 0-1 .4-1 1s.4 1 1 1h2.6l-.3.3c-.4.4-.4 1 0 1.4.2.2.5.3.7.3s.5-.1.7-.3l2-2c.1-.1.2-.2.2-.3.1-.3.1-.5 0-.8z"></path><path d="M17 14c-.6 0-1 .4-1 1v1c0 .6-.4 1-1 1h-1V8.4c0-1.3-.8-2.4-1.9-2.8L10.5 5H15c.6 0 1 .4 1 1v1c0 .6.4 1 1 1s1-.4 1-1V6c0-1.7-1.3-3-3-3H5c-.1 0-.2 0-.3.1-.1 0-.2.1-.2.1l-.1.1c-.1 0-.2.1-.2.2v.1c-.1 0-.2.1-.2.2V18c0 .4.3.8.6.9l6.6 2.5c.2.1.5.1.7.1.4 0 .8-.1 1.1-.4.5-.4.9-1 .9-1.6V19h1c1.7 0 3-1.3 3-3v-1c.1-.5-.3-1-.9-1zM6 17.3V5.4l5.3 2c.4.2.7.6.7 1v11.1l-6-2.2z"></path></svg>
+                </button> */}
+            </div>
+            <div className='min-w-fit flex items-center gap-2'>
+
                 {profiles.map((profile, index) => (
-                    <div key={index} className='relative'>
-                        <img src={profile.img} alt={profile.name} className='w-10 h-10 rounded-full' />
+                    profile.active &&
+                    <div key={index} className={`relative `}>
+                        <img src={profile.img} alt={profile.name} className='size-8 sm:size-10 rounded-full' />
                         <span className='absolute bottom-0 left-0 w-3 h-3  bg-[#0f0] rounded-full'></span>
                     </div>
                 ))
                 }
+                {/* <div className='relative'> */}
+                <button className='bg-primary size-8 sm:size-10 rounded-full '>
+                    <svg width="16" height="16" className='mx-auto my-0' viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M15 7H9V1C9 0.447 8.552 0 8 0C7.448 0 7 0.447 7 1V7H1C0.448 7 0 7.447 0 8C0 8.553 0.448 9 1 9H7V15C7 15.553 7.448 16 8 16C8.552 16 9 15.553 9 15V9H15C15.552 9 16 8.553 16 8C16 7.447 15.552 7 15 7Z" fill="white" />
+                    </svg>
+                </button>
+                {/* </div> */}
             </div>
         </nav>
     )
 }
 
 export default Navbar
+
+
+//TODO: Change the navbar to 80% width on all screens and 100% on mobile

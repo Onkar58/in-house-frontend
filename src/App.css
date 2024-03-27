@@ -1,0 +1,33 @@
+#mainDiv::-webkit-scrollbar{
+  display: none;
+}
+#rankCards::-webkit-scrollbar{
+  display: none;
+
+}
+
+#searchBox::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  border-radius: 30px;
+  padding: 5px;
+  background: linear-gradient(45deg, white, rgba(255, 70, 225, 0.71));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 425px) {
+  #searchBox::before {
+    padding: 3px;
+  }
+
+}
