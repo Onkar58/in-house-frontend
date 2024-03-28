@@ -72,20 +72,20 @@ const Navbar = () => {
                     <path d="M48.5006 20.1314L49.319 13.8143L43.0998 12.0241L33.6016 0L43.0392 14.9101L42.7642 19.5619L48.5006 20.1314Z" fill="url(#paint3_linear_32_2731)" />
                     <defs>
                         <linearGradient id="paint0_linear_32_2731" x1="-3.14789" y1="8.36357" x2="2526.36" y2="1734.63" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#030E14" />
-                            <stop offset="1" stop-color="#8FD3F4" />
+                            <stop stopColor="#030E14" />
+                            <stop offset="1" stopColor="#8FD3F4" />
                         </linearGradient>
                         <linearGradient id="paint1_linear_32_2731" x1="8.98474" y1="8.36688" x2="2063.43" y2="947.778" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#030E14" />
-                            <stop offset="1" stop-color="#8FD3F4" />
+                            <stop stopColor="#030E14" />
+                            <stop offset="1" stopColor="#8FD3F4" />
                         </linearGradient>
                         <linearGradient id="paint2_linear_32_2731" x1="7.75833" y1="8.36357" x2="2587.39" y2="1873.71" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#030E14" />
-                            <stop offset="1" stop-color="#8FD3F4" />
+                            <stop stopColor="#030E14" />
+                            <stop offset="1" stopColor="#8FD3F4" />
                         </linearGradient>
                         <linearGradient id="paint3_linear_32_2731" x1="32.1291" y1="2.59031" x2="873.048" y2="869.308" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#030E14" />
-                            <stop offset="1" stop-color="#8FD3F4" />
+                            <stop stopColor="#030E14" />
+                            <stop offset="1" stopColor="#8FD3F4" />
                         </linearGradient>
                     </defs>
                 </svg>
@@ -120,7 +120,7 @@ const Navbar = () => {
                 {/* <div className='relative'> */}
                 <button className='bg-primary size-8 sm:size-10 rounded-full '>
                     <svg width="16" height="16" className='mx-auto my-0' viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M15 7H9V1C9 0.447 8.552 0 8 0C7.448 0 7 0.447 7 1V7H1C0.448 7 0 7.447 0 8C0 8.553 0.448 9 1 9H7V15C7 15.553 7.448 16 8 16C8.552 16 9 15.553 9 15V9H15C15.552 9 16 8.553 16 8C16 7.447 15.552 7 15 7Z" fill="white" />
+                        <path fillRule="evenodd" clipRule="evenodd" d="M15 7H9V1C9 0.447 8.552 0 8 0C7.448 0 7 0.447 7 1V7H1C0.448 7 0 7.447 0 8C0 8.553 0.448 9 1 9H7V15C7 15.553 7.448 16 8 16C8.552 16 9 15.553 9 15V9H15C15.552 9 16 8.553 16 8C16 7.447 15.552 7 15 7Z" fill="white" />
                     </svg>
                 </button>
                 {/* </div> */}

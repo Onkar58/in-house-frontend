@@ -2,8 +2,10 @@ import React, { useEffect, useMemo, useState } from 'react'
 import RankCard from './Leaderboard/RankCard'
 import RankStrip from './Leaderboard/RankStrip'
 import { auth } from '../utils/firebaseConfig'
+import { useUserAuth } from '../providers/UserContext'
 
 const Leaderboard = () => {
+  const user = useUserAuth()
   const [loading, setLoading] = useState(false)
   const [studentData, setStudentData] = useState([])
   const getData = async () => {
@@ -14,7 +16,7 @@ const Leaderboard = () => {
         'Content-Type': "application/json"
       },
       body: JSON.stringify({
-        email: auth.currentUser.email
+        email: user.email
       })
     })
     const data = await leaderboardData.json()

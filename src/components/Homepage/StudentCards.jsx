@@ -64,32 +64,12 @@ const trialData = [
 ]
 
 
-const StudentCards = () => {
+const StudentCards = ({studentsData}) => {
 
-    const [students, setStudents] = useState([])
-    const fetchData = async () => {
-        const studentData = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/user/gethomepagedata/`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': "application/json",
-            },
-            body: JSON.stringify({
-                email: auth.currentUser.email
-            })
-        })
-        const stIds = await studentData.json()
-        if (stIds) {
-            console.log("saad", stIds["data"]);
-            setStudents(stIds["data"])
-        }
-        // console.log(students);
-    }
-    useEffect(() => {
-        fetchData()
-    }, [])
+    // const [students, setStudents] = useState([])
     return (
         <div className="my-20 flex flex-wrap justify-center items-baseline gap-5 md:gap-10 gap-y-20 md:gap-y-20 w-fit">
-            {students.map((student, index) => (
+            {studentsData?.map((student, index) => (
                 <StudentCard key={index} data={student} />
             ))}
         </div>
