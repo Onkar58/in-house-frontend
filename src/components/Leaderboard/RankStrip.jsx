@@ -2,7 +2,7 @@ import React from 'react'
 
 const RankStrip = ({ data, position }) => {
     return (
-        <div className='w-full bg-[#ffffff42] flex items-center justify-between px-5 py-2 rounded-md text-center text-sm text-opacity-70' >
+        <div className='w-full bg-[#ffffff42] flex items-center justify-between px-5 py-2 rounded-md text-center text-sm text-opacity-70' onClick={() => window.open(`https://www.leetcode.com/${data.username}`)}>
             <div className='flex items-center w-max gap-3 text-start'>
                 <img src={data.userAvatar} alt="Profile" className='size-10 rounded-full' />
                 <span className='w-40'>

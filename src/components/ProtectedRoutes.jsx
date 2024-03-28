@@ -1,12 +1,18 @@
 import { useState } from 'react'
-import { Outlet, Navigate, } from 'react-router-dom'
+import { Outlet, Navigate, useNavigate, } from 'react-router-dom'
 import { useUserAuth } from '../providers/UserContext'
-const ProtectedRoutes = () => {
-    const user = useUserAuth()
-    console.log("use ", user);
+
+export const ProtectedRoutes = () => {
+    const { user, loading } = useUserAuth()
+    console.log("User", user);
     return (
-        user ? <Outlet /> : <Navigate to='/login' />
+        loading && <h1>Loading</h1> || !loading && user ? <Outlet /> : <Navigate to='/login' />
     )
 }
 
-export default ProtectedRoutes
+export const UnProtectedRoutes = () => {
+    const { user } = useUserAuth()
+    return (
+        !user ? <Outlet /> : <Navigate to='/' />
+    )
+}

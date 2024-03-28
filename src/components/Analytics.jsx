@@ -1,8 +1,9 @@
 import React from 'react'
+import LetsAnalyse from './Analytics/LetsAnalyse'
 
 const Analytics = () => {
   return (
-    <div>Analytics</div>
+    <LetsAnalyse />
   )
 }
 

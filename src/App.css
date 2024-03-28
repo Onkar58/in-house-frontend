@@ -1,7 +1,25 @@
-#mainDiv::-webkit-scrollbar{
+#analyse{
+  position: relative;
+  /* background: url("./assets/video."); */
+}
+#analyse::before {
+  all: unset;
+  content: "LET'S";
+  position: absolute;
+  /* left: 10%; */
+  /* top: 50%; */
+  transform: translate(-100%);
+  /* border: 2px solid green; */
+  transform-origin: right center;
+  /* rotate: 90deg; */
+  font-size: 3rem;
+}
+
+#mainDiv::-webkit-scrollbar {
   display: none;
 }
-#rankCards::-webkit-scrollbar{
+
+#rankCards::-webkit-scrollbar {
   display: none;
 
 }

@@ -1,5 +1,6 @@
 import { auth } from "./firebaseConfig";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { indexedDBLocalPersistence, setPersistence } from "firebase/auth";
 
 export const signUpUser = async (formData) => {
     return await createUserWithEmailAndPassword(auth, formData.email, formData.password)
@@ -26,16 +27,21 @@ export const signUpUser = async (formData) => {
 }
 
 export const loginUser = async (formData) => {
-    return await signInWithEmailAndPassword(auth, formData.email, formData.password)
-        .then(async (userCredential) => {
-            const user = userCredential.user;
-            console.log('User Created', user);
-            return { success: true, message: 'User Logged In' };
+    return setPersistence(auth, indexedDBLocalPersistence)
+        .then(async () => {
+
+            return await signInWithEmailAndPassword(auth, formData.email, formData.password)
+                .then(async (userCredential) => {
+                    const user = userCredential.user;
+                    console.log('User Created', user);
+                    return { success: true, message: 'User Logged In' };
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log('Error', errorCode, errorMessage);
+                    return { success: false, message: errorMessage }
+                });
         })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log('Error', errorCode, errorMessage);
-            return { success: false, message: errorMessage }
-        });
+        .catch(err => console.log(err.code, err.message))
 }

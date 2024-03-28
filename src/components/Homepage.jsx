@@ -9,7 +9,7 @@ import { useUserAuth } from '../providers/UserContext'
 const Homepage = () => {
   const [studentsData, setStudentsData] = useState([""])
 
-  const user = useUserAuth()
+  const { user } = useUserAuth()
 
   const addStudent = async (studentId) => {
     const isStudentAdded = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/user/addstudent/`, {

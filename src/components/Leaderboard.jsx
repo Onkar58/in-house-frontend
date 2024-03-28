@@ -5,7 +5,7 @@ import { auth } from '../utils/firebaseConfig'
 import { useUserAuth } from '../providers/UserContext'
 
 const Leaderboard = () => {
-  const user = useUserAuth()
+  const { user } = useUserAuth()
   const [loading, setLoading] = useState(false)
   const [studentData, setStudentData] = useState([])
   const getData = async () => {
@@ -20,8 +20,9 @@ const Leaderboard = () => {
       })
     })
     const data = await leaderboardData.json()
-    if (data) {
-      console.log("saad", data["data"]);
+    console.log(data);
+    if (data.success) {
+      console.log("saad", data);
       setStudentData(data["data"].sort((a, b) => a.ranking - b.ranking))
     }
     setLoading(false)
@@ -30,8 +31,8 @@ const Leaderboard = () => {
 
   return (
     <div className='mt-20'>
-      {loading && <svg class="spinner" viewBox="0 0 50 50">
-        <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+      {loading && <svg className="spinner" viewBox="0 0 50 50">
+        <circle className="path" cx="25" cy="25" r="20" fill="none" strokeWidth="5"></circle>
       </svg>}
       <div className='overflow-x-scroll flex items-center p-5 gap-10 sm:justify-evenly' id="rankCards">
         {studentData.slice(0, 3).map((item, index) => {

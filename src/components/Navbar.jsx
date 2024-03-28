@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom'
 import dummyImg1 from "../assets/dummyProfile.png"
 import dummyImg2 from "../assets/dummyProfile2.png"
 import dummyImg3 from "../assets/dummyProfile3.png"
+import { signOut } from 'firebase/auth'
+import { auth } from '../utils/firebaseConfig'
 
 const profiles = [
     {
@@ -111,7 +113,7 @@ const Navbar = () => {
 
                 {profiles.map((profile, index) => (
                     profile.active &&
-                    <div key={index} className={`relative `}>
+                    <div key={index} className={`relative cursor-pointer`} onClick={() => signOut(auth)}>
                         <img src={profile.img} alt={profile.name} className='size-8 sm:size-10 rounded-full' />
                         <span className='absolute bottom-0 left-0 w-3 h-3  bg-[#0f0] rounded-full'></span>
                     </div>
