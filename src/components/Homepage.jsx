@@ -4,6 +4,7 @@ import StudentCards from './Homepage/StudentCards'
 import { auth } from '../utils/firebaseConfig'
 
 import { useUserAuth } from '../providers/UserContext'
+import toast from 'react-hot-toast'
 
 
 const Homepage = () => {
@@ -24,11 +25,12 @@ const Homepage = () => {
     })
     const studentAdded = await isStudentAdded.json()
     if (studentAdded.success) {
+      toast.success("Student Added")
       console.log("Student Added");
       fetchStudentsData()
     }
     else
-      console.log("Errorrrrrr");
+      toast.error("Student Already Added or not Found")
   }
 
   const fetchStudentsData = async () => {

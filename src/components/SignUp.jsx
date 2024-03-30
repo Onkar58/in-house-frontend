@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { auth } from '../utils/firebaseConfig';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toBase64 } from '../utils/functions';
 import { signUpUser } from '../utils/authFunctions';
 
@@ -84,12 +84,18 @@ const SignUp = () => {
                         onChange={changeHandler}
                     />
                 </div>
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col items-center justify-between">
                     <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        className="w-full max-w-[300px] bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                         type="submit"
                     >
                         Sign In
+                    </button>
+                    <button
+                        className="text-blue-500 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        type="submit"
+                    >
+                        <Link to='/login'>Go to Login</Link>
                     </button>
                 </div>
             </form>
