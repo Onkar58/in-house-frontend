@@ -4,9 +4,11 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [formData, setFormData] = useState({ email: '', password: '' });
+    const [errMsg, setErrMsg] = useState("")
     const navigate = useNavigate()
 
     const changeHandler = (e) => {
+        setErrMsg("")
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
@@ -18,11 +20,14 @@ const Login = () => {
             console.log('User Logged In')
             navigate('/')
         }
+        else
+        setErrMsg("Invalid Credentials")
     };
 
     return (
         <div className="flex justify-center items-center h-screen">
             <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
+                <span className='text-primary'>{errMsg}</span>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
                         Email

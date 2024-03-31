@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import dummyImg1 from "../assets/dummyProfile.png"
 import dummyImg2 from "../assets/dummyProfile2.png"
 import dummyImg3 from "../assets/dummyProfile3.png"
@@ -59,8 +59,13 @@ const links = [
 
 
 const Navbar = () => {
+    const navigator = useNavigate()
     const [active, setActive] = useState('/')
     const [isMenuOpen, setIsMenuOpen] = useState(true)
+    const [showPopUp, setShowPopUp] = useState(false)
+    const togglePopup = () => {
+        setShowPopUp(!showPopUp)
+    }
     return (
         <nav className='fixed z-10 top-0 left-1/2 -translate-x-1/2 w-screen md:w-screen lg:w-[90%] xl:w-4/5 bg-white flex items-center justify-between p-3 gap-5 rounded-b-lg'>
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 50 50" className='size-6 sm:hidden' onClick={() => setIsMenuOpen(true)}>
@@ -109,22 +114,28 @@ const Navbar = () => {
                     <svg xmlns="http://www.w3.org/2000/svg" className='size-6' viewBox="0 0 24 24" id="logout"><path d="M21.9 10.6c-.1-.1-.1-.2-.2-.3l-2-2c-.4-.4-1-.4-1.4 0s-.4 1 0 1.4l.3.3H16c-.6 0-1 .4-1 1s.4 1 1 1h2.6l-.3.3c-.4.4-.4 1 0 1.4.2.2.5.3.7.3s.5-.1.7-.3l2-2c.1-.1.2-.2.2-.3.1-.3.1-.5 0-.8z"></path><path d="M17 14c-.6 0-1 .4-1 1v1c0 .6-.4 1-1 1h-1V8.4c0-1.3-.8-2.4-1.9-2.8L10.5 5H15c.6 0 1 .4 1 1v1c0 .6.4 1 1 1s1-.4 1-1V6c0-1.7-1.3-3-3-3H5c-.1 0-.2 0-.3.1-.1 0-.2.1-.2.1l-.1.1c-.1 0-.2.1-.2.2v.1c-.1 0-.2.1-.2.2V18c0 .4.3.8.6.9l6.6 2.5c.2.1.5.1.7.1.4 0 .8-.1 1.1-.4.5-.4.9-1 .9-1.6V19h1c1.7 0 3-1.3 3-3v-1c.1-.5-.3-1-.9-1zM6 17.3V5.4l5.3 2c.4.2.7.6.7 1v11.1l-6-2.2z"></path></svg>
                 </button> */}
             </div>
-            <div className='min-w-fit flex items-center gap-2'>
+            <div className='relative min-w-fit flex items-center gap-2'>
 
                 {profiles.map((profile, index) => (
                     profile.active &&
-                    <div key={index} className={`relative cursor-pointer`} onClick={() => signOut(auth)}>
+                    <div key={index} className={`relative cursor-pointer`} onClick={togglePopup}>
                         <img src={profile.img} alt={profile.name} className='size-8 sm:size-10 rounded-full' />
                         <span className='absolute bottom-0 left-0 w-3 h-3  bg-[#0f0] rounded-full'></span>
                     </div>
                 ))
                 }
+
+                {showPopUp && <div className='absolute w-max bg-white shadow-lg rounded-md flex flex-col items-center gap-3 p-3 top-14 right-0'>
+                    <button className='p-2 px-3 cursor-pointer' onClick={() => {navigator("/profile");setShowPopUp(false)}}>Go to Profile</button>
+                    <button className="cursor-pointer" onClick={() => signOut(auth)}>Sign Out</button>
+                </div>}
+
                 {/* <div className='relative'> */}
-                <button className='bg-primary size-8 sm:size-10 rounded-full '>
+                {/* <button className='bg-primary size-8 sm:size-10 rounded-full '>
                     <svg width="16" height="16" className='mx-auto my-0' viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fillRule="evenodd" clipRule="evenodd" d="M15 7H9V1C9 0.447 8.552 0 8 0C7.448 0 7 0.447 7 1V7H1C0.448 7 0 7.447 0 8C0 8.553 0.448 9 1 9H7V15C7 15.553 7.448 16 8 16C8.552 16 9 15.553 9 15V9H15C15.552 9 16 8.553 16 8C16 7.447 15.552 7 15 7Z" fill="white" />
                     </svg>
-                </button>
+                </button> */}
                 {/* </div> */}
             </div>
         </nav>

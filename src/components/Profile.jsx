@@ -2,7 +2,7 @@ import React from 'react'
 
 const Profile = () => {
   return (
-    <div></div>
+    <div>Teachers Profile here</div>
   )
 }
 

@@ -29,7 +29,6 @@ export const signUpUser = async (formData) => {
 export const loginUser = async (formData) => {
     return setPersistence(auth, indexedDBLocalPersistence)
         .then(async () => {
-
             return await signInWithEmailAndPassword(auth, formData.email, formData.password)
                 .then(async (userCredential) => {
                     const user = userCredential.user;

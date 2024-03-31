@@ -10,58 +10,6 @@ import fruit8 from '../../assets/fruit8.png'
 import StudentCard from './StudentCard'
 import { auth } from '../../utils/firebaseConfig'
 
-const trialData = [
-    {
-        name: "Onkar Waghmode",
-        img: fruit1,
-        ranking: 342_123,
-    },
-    {
-        name: "Kalash Gawande",
-        img: fruit2,
-        ranking: 34116,
-    },
-    {
-        name: "Rahul Patil",
-        img: fruit3,
-        ranking: 342_123,
-    },
-    {
-        name: "Rahul Patil",
-        img: fruit3,
-        ranking: 342_123,
-    },
-    {
-        name: "Rahul Patil",
-        img: fruit3,
-        ranking: 342_123,
-    },
-    {
-        name: "Rahul Patil",
-        img: fruit4,
-        ranking: 342_123,
-    },
-    {
-        name: "Rahul Patil",
-        img: fruit5,
-        ranking: 342_123,
-    },
-    {
-        name: "Rahul Patil",
-        img: fruit6,
-        ranking: 342_123,
-    },
-    {
-        name: "Rahul Patil",
-        img: fruit7,
-        ranking: 342_123,
-    },
-    {
-        name: "Rahul Patil",
-        img: fruit8,
-        ranking: 342_123,
-    },
-]
 
 
 const StudentCards = ({studentsData}) => {

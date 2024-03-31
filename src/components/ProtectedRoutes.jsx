@@ -3,10 +3,9 @@ import { Outlet, Navigate, useNavigate, } from 'react-router-dom'
 import { useUserAuth } from '../providers/UserContext'
 
 export const ProtectedRoutes = () => {
-    const { user, loading } = useUserAuth()
-    console.log("User", user);
+    const { user } = useUserAuth()
     return (
-        loading && <h1>Loading</h1> || !loading && user ? <Outlet /> : <Navigate to='/login' />
+        user ? <Outlet /> : <Navigate to='/login' />
     )
 }
 
