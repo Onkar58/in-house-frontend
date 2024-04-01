@@ -42,7 +42,7 @@ const Analytics = () => {
     <>
       <LetsAnalyse />
       <div className='w-full flex flex-col items-center gap-5 justify-between'>
-        <div className='w-full flex items-center justify-between'>
+        <div className='w-full flex items-center justify-between mb-20'>
           <AllQuestions inputData={analyticsData} />
           <ActiveUsers recentSubmissions={recentSubmissions} />
         </div>
