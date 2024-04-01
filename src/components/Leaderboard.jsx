@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import RankCard from './Leaderboard/RankCard'
 import RankStrip from './Leaderboard/RankStrip'
+import Loader from "./Loader"
 import { auth } from '../utils/firebaseConfig'
 import { useUserAuth } from '../providers/UserContext'
 
@@ -31,9 +32,7 @@ const Leaderboard = () => {
 
   return (
     <div className='mt-20'>
-      {loading && <svg className="spinner" viewBox="0 0 50 50">
-        <circle className="path" cx="25" cy="25" r="20" fill="none" strokeWidth="5"></circle>
-      </svg>}
+      {loading && <Loader  />}
       <div className='overflow-x-scroll flex items-center p-5 gap-10 sm:justify-evenly' id="rankCards">
         {studentData.slice(0, 3).map((item, index) => {
           return <RankCard data={item} key={index} position={index + 1} />
