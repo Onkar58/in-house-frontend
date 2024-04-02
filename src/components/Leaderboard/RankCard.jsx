@@ -1,8 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const RankCard = ({ data, position }) => {
+  const navigator = useNavigate()
   return (
-    <div className={`text-black ${position === 1 ? "sm:order-2 scale-110" : position === 2 ? "sm:order-1 scale-100" : "sm:order-3 scale-90"} bg-[#ffffff52] shadow-[2px_2px_5px_#ffffff42] p-5 aspect-[4/5] h-[220px] rounded-md`} onClick={() => window.open(`https://www.leetcode.com/${data.username}`)}>
+    <div className={`text-black ${position === 1 ? "sm:order-2 scale-110" : position === 2 ? "sm:order-1 scale-100" : "sm:order-3 scale-90"} bg-[#ffffff52] shadow-[2px_2px_5px_#ffffff42] p-5 aspect-[4/5] h-[220px] rounded-md`} onClick={() => navigator(`/student/${data.username}`) }>
       <div className=''>
         <img src={data.userAvatar} alt="profile" className='w-12 h-12 rounded-full' />
         <h1 className='mt-2 text-xl font-[600]'>{data.realName ? data.realName.split(" ")[0] : data.username}</h1>

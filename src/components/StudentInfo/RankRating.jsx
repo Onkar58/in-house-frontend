@@ -14,7 +14,9 @@ const RankRating = ({ rankRatings, questions }) => {
           <h1 className={h1Styles}>Rank: <span className={spanStyling}>{rankRatings.ranking}</span></h1>
           <h1 className={h1Styles}>Reputation: <span className={spanStyling + " opacity-70"}>{rankRatings.reputation}</span></h1>
           <h1 className={h1Styles}>Star Ratings: <span className={spanStyling + " opacity-70"}>{rankRatings.starRating}</span></h1>
+          <h1 className={h1Styles}>Total Badges: <span className={spanStyling + " opacity-70"}>{rankRatings?.badges?.length}</span></h1>
         </div>
+
         <div id="badgesDiv" className='flex items-center gap-3 overflow-x-scroll overflow-y-hidden mt-10'>
           {
             rankRatings?.badges ?

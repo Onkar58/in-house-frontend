@@ -24,13 +24,13 @@ function App() {
           <Route path="/leaderboard" element={<Wrapper children={<Leaderboard />} />} />
           <Route path="/analytics" element={<Wrapper children={<Analytics />} />} />
           <Route path="/trending" element={<Wrapper children={<Trending />} />} />
-          <Route path="/student/profile" element={<Wrapper children={<Profile />} />} />
+          <Route path="/profile" element={<Wrapper children={<Profile />} />} />
         </Route>
         <Route element={<UnProtectedRoutes />} >
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
       </Route>
-      <Route path="*" element={<Wrapper children={<StudentInfo />} />}/>
+      <Route path="/student/*" element={<Wrapper children={<StudentInfo />} />}/>
     </Routes>
     </div >
   )

@@ -72,30 +72,31 @@ const Navbar = () => {
                 <path d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z"></path>
             </svg>
             <div className='flex text-[25px] font-[400]'>
-                <svg className=' size-10 mr-2' viewBox="0 0 50 65" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 6.37287L11.0895 65L7.26313 25.76L26.1742 24.5027L26.1391 17.9351L33.6022 0L26.4818 11.9463L0 6.37287Z" fill="url(#paint0_linear_32_2731)" />
-                    <path d="M30.244 35.5837L33.6065 0.00390625L27.9112 26.3965L15.1313 27.091L16.1543 40.6886L11.0938 64.9993L18.9505 38.485L30.244 35.5837Z" fill="url(#paint1_linear_32_2731)" />
-                    <path d="M32.4667 43.9801L32.8245 37.0338L22.412 39.5291L22.3912 47.3686L11.0938 65L25.2212 46.6482L32.4667 43.9801ZM34.3636 40.7984L44.0346 37.6544L45.0179 29.3265L34.6575 30.7187L34.3636 40.7984ZM38.5074 28.9085L45.6676 27.9669L46.6978 21.1368L41.4332 20.8889L33.6065 0L39.0997 20.5786L38.5074 28.9085Z" fill="url(#paint2_linear_32_2731)" />
-                    <path d="M48.5006 20.1314L49.319 13.8143L43.0998 12.0241L33.6016 0L43.0392 14.9101L42.7642 19.5619L48.5006 20.1314Z" fill="url(#paint3_linear_32_2731)" />
+                <svg className='size-10 mr-2' viewBox="0 0 37 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.71875 5.66509L8.67632 53.4687L5.93059 21.473L19.5007 20.4478L19.4755 15.0927L24.8309 0.46875L19.7214 10.2096L0.71875 5.66509Z" fill="url(#paint0_linear_151_5108)" />
+                    <path d="M22.4214 29.4838L24.8342 0.472656L20.7474 21.9927L11.5769 22.559L12.311 33.6463L8.67969 53.4688L14.3175 31.8495L22.4214 29.4838Z" fill="url(#paint1_linear_151_5108)" />
+                    <path d="M24.0164 36.3294L24.2731 30.6655L16.8014 32.7001L16.7864 39.0923L8.67969 53.4687L18.8172 38.505L24.0164 36.3294ZM25.3776 33.7351L32.3172 31.1716L33.0228 24.3811L25.5885 25.5163L25.3776 33.7351ZM28.351 24.0403L33.489 23.2725L34.2283 17.7034L30.4505 17.5012L24.8342 0.46875L28.7761 17.2482L28.351 24.0403Z" fill="url(#paint2_linear_151_5108)" />
+                    <path d="M35.5193 16.8835L36.1066 11.7327L31.6438 10.273L24.8281 0.46875L31.6003 12.6262L31.403 16.4192L35.5193 16.8835Z" fill="url(#paint3_linear_151_5108)" />
                     <defs>
-                        <linearGradient id="paint0_linear_32_2731" x1="-3.14789" y1="8.36357" x2="2526.36" y2="1734.63" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#030E14" />
-                            <stop offset="1" stopColor="#8FD3F4" />
+                        <linearGradient id="paint0_linear_151_5108" x1="-0.0476599" y1="3.39105" x2="2289.65" y2="924.784" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#EE201C" />
+                            <stop offset="1" stop-color="#F7F3EC" />
                         </linearGradient>
-                        <linearGradient id="paint1_linear_32_2731" x1="8.98474" y1="8.36688" x2="2063.43" y2="947.778" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#030E14" />
-                            <stop offset="1" stopColor="#8FD3F4" />
+                        <linearGradient id="paint1_linear_151_5108" x1="7.16632" y1="7.29169" x2="1541.21" y2="624.603" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#EE201C" />
+                            <stop offset="1" stop-color="white" />
                         </linearGradient>
-                        <linearGradient id="paint2_linear_32_2731" x1="7.75833" y1="8.36357" x2="2587.39" y2="1873.71" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#030E14" />
-                            <stop offset="1" stopColor="#8FD3F4" />
+                        <linearGradient id="paint2_linear_151_5108" x1="7.16773" y1="7.28805" x2="2433.28" y2="983.571" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#EE201C" />
+                            <stop offset="1" stop-color="white" />
                         </linearGradient>
-                        <linearGradient id="paint3_linear_32_2731" x1="32.1291" y1="2.59031" x2="873.048" y2="869.308" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#030E14" />
-                            <stop offset="1" stopColor="#8FD3F4" />
+                        <linearGradient id="paint3_linear_151_5108" x1="21.8026" y1="15.1994" x2="1092.81" y2="446.181" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#EE201C" />
+                            <stop offset="1" stop-color="#F3F3F1" />
                         </linearGradient>
                     </defs>
                 </svg>
+
                 <span>litgit</span>
             </div>
             <div className={`fixed ${isMenuOpen ? "translate-x-0" : "-translate-x-full"} sm:static transition-all h-screen sm:h-fit bg-white top-0 left-0 flex flex-col sm:flex-row p-10 py-20 sm:p-2 sm:py-2 gap-10 `}>
@@ -126,7 +127,7 @@ const Navbar = () => {
                 }
 
                 {showPopUp && <div className='absolute w-max bg-white shadow-lg rounded-md flex flex-col items-center gap-3 p-3 top-14 right-0'>
-                    <button className='p-2 px-3 cursor-pointer' onClick={() => {navigator("/profile");setShowPopUp(false)}}>Go to Profile</button>
+                    <button className='p-2 px-3 cursor-pointer' onClick={() => { navigator("/profile"); setShowPopUp(false) }}>Go to Profile</button>
                     <button className="cursor-pointer" onClick={() => signOut(auth)}>Sign Out</button>
                 </div>}
 
