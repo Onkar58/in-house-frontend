@@ -1,3 +1,6 @@
+#badgesDiv::-webkit-scrollbar{
+  display: none;
+}
 
 #analyse{
   position: relative;

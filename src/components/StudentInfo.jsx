@@ -4,14 +4,17 @@ import toast from "react-hot-toast"
 import MainInfo from './StudentInfo/MainInfo'
 import RankRating from './StudentInfo/RankRating'
 import SkillsLang from './StudentInfo/SkillsLang'
+import RecentSubmissions from './StudentInfo/RecentSubmissions'
 
 const StudentInfo = () => {
     const location = useLocation()
+    console.log("lll", location.pathname.split("/")[2]);
     const navigate = useNavigate()
     const [studentData, setStudentData] = useState({})
+    const [skillsData, setSkillsData] = useState({})
     const [loading, setLoading] = useState(true)
     const fetchStudentData = async () => {
-        const data = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/student${location.pathname}`,
+        const data = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}${location.pathname}`,
             {
                 method: "GET",
                 headers: {
@@ -31,8 +34,32 @@ const StudentInfo = () => {
         setLoading(false)
 
     }
+    const fetchSkills = async () => {
+        const data = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/student/getskills`,
+            {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+
+                },
+                body: JSON.stringify(
+                    {
+                        username: location.pathname.split("/")[2]
+                    })
+
+            }
+        )
+            .then(data => data.json())
+            .then(data => data)
+            .catch(err => console.log("Error", err))
+            console.log(data.message);
+        if (data.success) {
+            setSkillsData(data.message)
+        }
+    }
     useEffect(() => {
         fetchStudentData()
+        fetchSkills()
     }, [])
     return (
         loading ?
@@ -46,7 +73,8 @@ const StudentInfo = () => {
                 <>
                     <MainInfo info={studentData.profileData} />
                     <RankRating rankRatings={studentData.rankRatings} questions={studentData.questions} />
-                    {/* <SkillsLang submissionCalender={studentData.submissionCalender} recentSubmissions={studentData.recentSubmissions}/> */}
+                    <SkillsLang skills={skillsData.skillsData} />
+                    <RecentSubmissions  data={skillsData.recentSubmissions.recentSubmissionList}/>
                 </> :
                 <div className='mt-40 w-full flex items-center flex-col gap-10'>
                     <h1 className='text-4xl font-[600] text-white opacity-50 text-center my-auto'>No Student Found</h1>

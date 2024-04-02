@@ -1,94 +1,62 @@
-import React, { useState } from 'react'
-import {AgChartsReact} from "ag-charts-react"
+import React, { useEffect, useState } from 'react'
+import { AgChartsReact } from "ag-charts-react"
+import "ag-charts-enterprise";
 
-const Questions = () => {
-    const [options, setOptions] = useState({
-        title: {
-            text: "Apple's Revenue by Product Category",
-        },
-        subtitle: {
-            text: "In Billion U.S. Dollars",
-        },
-        data: [
-            {
-                studentNo: 1,
-                easy: 140,
-                intermediate: 16,
-                hard: 14,
-              },
-              {
-                studentNo: 2,
-                easy: 124,
-                intermediate: 20,
-                hard: 14,
-                
-              },
-              {
-                studentNo: 3,
-                easy: 112,
-                intermediate: 20,
-                hard: 18,
-              },
-              {
-                studentNo: 4,
-                easy: 118,
-                intermediate: 24,
-                hard: 14,
-              },
-              {
-                studentNo: 5,
-                easy: 124,
-                intermediate: 18,
-                hard: 16,
-              },
-              {
-                studentNo: 6,
-                easy: 108,
-                intermediate: 20,
-                hard: 16,
-              },
-              {
-                studentNo: 7,
-                easy: 96,
-                intermediate: 22,
-                hard: 18,
-              },
-              {
-                studentNo: 8,
-                easy: 104,
-                intermediate: 22,
-                hard: 14,
-              },
-        ],
-        series: [
-            {
-                type: "bar",
-                xKey: "studentNo",
-                yKey: "easy",
-                yName: "easy",
-                stacked: true,
-            },
-            {
-                type: "bar",
-                xKey: "studentNo",
-                yKey: "intermediate",
-                yName: "intermediate",
-                stacked: true,
-            },
-            {
-                type: "bar",
-                xKey: "studentNo",
-                yKey: "hard",
-                yName: "hard",
-                stacked: true,
-            },
-        ],
-    });
-    return (
-        <div className='w-full'>
-            <AgChartsReact options={options} />;
-        </div>
-    )
+var myTheme = {
+  baseTheme: 'ag-default-dark',
+  palette: {
+    fills: ['#4339F2', '#34B53A', '#FFB200'],
+    strokes: ['black'],
+  },
+  overrides: {
+    common: {
+      title: {
+        fontSize: 24,
+      },
+    },
+    bar: {
+      series: {
+
+      },
+    },
+  },
+};
+
+
+const Questions = ({ questionsInfo }) => {
+  const getData = () => {
+    return [
+      {
+        // all: questionsInfo["all"],
+        radiusKey: "Solved",
+        easy:questionsInfo["easy"]["solved"],
+        medium:questionsInfo["medium"]["solved"],
+        hard:questionsInfo["hard"]["solved"],
+      }
+    ]
+  }
+  const [options, setOptions] = useState({
+    title: {
+      text: "Number of Questions Solved By a Student",
+    },
+    data: getData(),
+    series: [
+      { type: 'radial-bar', radiusKey: 'radiusKey', angleKey: 'easy', angleName: 'Easy' },
+      { type: 'radial-bar', radiusKey: 'radiusKey', angleKey: 'medium', angleName: 'Medium' },
+      { type: 'radial-bar', radiusKey: 'radiusKey', angleKey: 'hard', angleName: 'Hard' },
+    ],
+    theme: myTheme,
+    background: {
+      fill: "rgba(0,0,0,0)"
+    }
+  });
+
+  return (
+    <div className='w-full relative'>
+      <p className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[90%] text-white text-xl' title='Total Questions Solved'>{questionsInfo.all.solved}</p>
+      <AgChartsReact options={options} />;
+    </div>
+  )
 }
 
 export default Questions
