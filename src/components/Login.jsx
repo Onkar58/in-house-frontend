@@ -17,7 +17,6 @@ const Login = () => {
         e.preventDefault();
         const userLoggedIn = await loginUser(formData);
         if (userLoggedIn.success) {
-            console.log('User Logged In')
             navigate('/')
         }
         else

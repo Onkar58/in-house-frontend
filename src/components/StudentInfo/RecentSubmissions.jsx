@@ -2,7 +2,6 @@ import React from 'react'
 import SingleProblem from './SingleProblem';
 
 const RecentSubmissions = ({ data }) => {
-    console.log("daaa", data);
     return (
         <div className='text-center mb-20'>
             <div className='mt-5 rounded-md flex justify-between items-center w-full text-white p-3 px-10'>

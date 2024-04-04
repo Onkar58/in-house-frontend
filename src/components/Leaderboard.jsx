@@ -21,9 +21,7 @@ const Leaderboard = () => {
       })
     })
     const data = await leaderboardData.json()
-    console.log(data);
     if (data.success) {
-      console.log("saad", data);
       setStudentData(data["data"].sort((a, b) => a.ranking - b.ranking))
     }
     setLoading(false)

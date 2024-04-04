@@ -15,7 +15,6 @@ const SignUp = () => {
     const changeImage = async (e) => {
         setProfilePic(e.target.files[0]);
         const imgData = await toBase64(e.target.files[0])
-        console.log('Image Data', imgData);
         setFormData({ ...formData, profilePic: imgData })
     }
     const handleSubmit = async (e) => {

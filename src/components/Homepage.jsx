@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Herosection from './Homepage/Herosection'
 import StudentCards from './Homepage/StudentCards'
-import { auth } from '../utils/firebaseConfig'
-
 import { useUserAuth } from '../providers/UserContext'
 import toast from 'react-hot-toast'
 
@@ -12,6 +10,21 @@ const Homepage = () => {
 
   const { user } = useUserAuth()
 
+  const fetchStudentsData = async () => {
+    const studentData = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/user/gethomepagedata/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': "application/json",
+      },
+      body: JSON.stringify({
+        email: user.email
+      })
+    })
+    const stIds = await studentData.json()
+    if (stIds) {
+      setStudentsData(await stIds["data"]?.reverse())
+    }
+  }
   const addStudent = async (studentId) => {
     const isStudentAdded = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/user/addstudent/`, {
       method: 'POST',
@@ -26,27 +39,30 @@ const Homepage = () => {
     const studentAdded = await isStudentAdded.json()
     if (studentAdded.success) {
       toast.success("Student Added")
-      console.log("Student Added");
       fetchStudentsData()
     }
     else
       toast.error("Student Already Added or not Found")
   }
 
-  const fetchStudentsData = async () => {
-    const studentData = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/user/gethomepagedata/`, {
+  const deleteUser = async (email, username) => {
+    const deletedUser = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/user/deletestudent/`, {
       method: 'POST',
       headers: {
-        'Content-Type': "application/json",
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        email: user.email
+        email: email,
+        username: username
       })
     })
-    const stIds = await studentData.json()
-    if (stIds) {
-      setStudentsData(stIds["data"]?.reverse())
+    const studentDeleted = await deletedUser.json()
+    if (studentDeleted.success) {
+      toast.success("Student Deleted")
+      fetchStudentsData()
     }
+    else
+      toast.error(studentDeleted.message)
   }
   useEffect(() => {
     fetchStudentsData()
@@ -57,7 +73,7 @@ const Homepage = () => {
       {
         studentsData?.length === 0 ?
           <h1>No Student is Added</h1> :
-          <StudentCards studentsData={studentsData} />}
+          <StudentCards studentsData={studentsData} deleteUser={deleteUser} />}
     </div>
   )
 }

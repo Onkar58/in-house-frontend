@@ -8,7 +8,6 @@ import RecentSubmissions from './StudentInfo/RecentSubmissions'
 
 const StudentInfo = () => {
     const location = useLocation()
-    console.log("lll", location.pathname.split("/")[2]);
     const navigate = useNavigate()
     const [studentData, setStudentData] = useState({})
     const [skillsData, setSkillsData] = useState({})
@@ -25,7 +24,6 @@ const StudentInfo = () => {
             .then(data => data.json())
             .then(data => data)
             .catch(err => console.log("Error", err))
-        console.log("studentData", data);
         if (data.success) {
             setStudentData(data.message)
         }
@@ -52,7 +50,6 @@ const StudentInfo = () => {
             .then(data => data.json())
             .then(data => data)
             .catch(err => console.log("Error", err))
-            console.log(data.message);
         if (data.success) {
             setSkillsData(data.message)
         }

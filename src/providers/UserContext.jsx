@@ -9,7 +9,6 @@ export const AuthContextProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        // setLoading(true)
         onAuthStateChanged(auth, () => {
             setUser(auth.currentUser)
         })
@@ -17,7 +16,6 @@ export const AuthContextProvider = ({ children }) => {
             setLoading(false)
         }, 1000)
     }, [])
-    // console.log("userin contet", user);
     return (
         <UserContext.Provider value={{ user }}>
             {loading ?

@@ -2,7 +2,6 @@ import React from 'react'
 import Skilltag from "./Skilltag"
 
 const SkillsLang = ({ skills }) => {
-  console.log("skills", skills);
   return (
     <div className='flex flex-col gap-10'>
       <div>

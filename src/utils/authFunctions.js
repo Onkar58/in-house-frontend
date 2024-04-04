@@ -6,7 +6,6 @@ export const signUpUser = async (formData) => {
     return await createUserWithEmailAndPassword(auth, formData.email, formData.password)
         .then(async (userCredential) => {
             const user = userCredential.user;
-            console.log('User Created', user);
             const addToDB = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/user/createuser/`, {
                 method: 'POST',
                 headers: {
@@ -19,7 +18,6 @@ export const signUpUser = async (formData) => {
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.log('Error', errorCode, errorMessage);
             return { success: false, message: errorMessage }
         });
 
@@ -27,20 +25,14 @@ export const signUpUser = async (formData) => {
 }
 
 export const loginUser = async (formData) => {
-    return setPersistence(auth, indexedDBLocalPersistence)
-        .then(async () => {
-            return await signInWithEmailAndPassword(auth, formData.email, formData.password)
-                .then(async (userCredential) => {
-                    const user = userCredential.user;
-                    console.log('User Created', user);
-                    return { success: true, message: 'User Logged In' };
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    console.log('Error', errorCode, errorMessage);
-                    return { success: false, message: errorMessage }
-                });
+    return await signInWithEmailAndPassword(auth, formData.email, formData.password)
+        .then(async (userCredential) => {
+            const user = userCredential.user;
+            return { success: true, message: 'User Logged In' };
         })
-        .catch(err => console.log(err.code, err.message))
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            return { success: false, message: errorMessage }
+        });
 }

@@ -22,7 +22,6 @@ const Analytics = () => {
       })
     })
     const stIds = await data.json()
-    console.log("Student ANalytics", stIds);
     setAnalyticsData(stIds.data.map(user => (user.skillsData)))
     setRecentSubmissions(stIds.data.map(user => (user.recentSubmissions)))
   }
