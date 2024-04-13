@@ -33,27 +33,30 @@ const Analytics = () => {
     }, 4000)
   }, [])
   return (
-    <>
-      <LetsAnalyse />
-      <div className='w-full flex flex-col items-center gap-5 justify-between'>
-        <div className='w-full flex items-center justify-between mb-20'>
-          {!loading && <AllQuestions inputData={analyticsData} />}
-          <ActiveUsers recentSubmissions={recentSubmissions} />
-        </div>
-        <div className='text-white bg-opacity-20 flex items-center justify-between w-full px-10 py-3 rounded-lg' >
-          <p className='underline text-lg min-w-[200px] cursor-pointer'>Username</p>
-          <p className='text-opacity-60'>Status</p>
-          <div className='max-w-[450px] flex-1 flex items-center justify-between text-center'>
-            <p>Advanced</p>
-            <p>Intermediate</p>
-            <p>Fundamental</p>
+    analyticsData.length > 0 ?
+      <>
+        <LetsAnalyse />
+
+        <div className='w-full flex flex-col items-center gap-5 justify-between'>
+          <div className='w-full flex items-center justify-between mb-20'>
+            {!loading && <AllQuestions inputData={analyticsData} />}
+            <ActiveUsers recentSubmissions={recentSubmissions} />
           </div>
+          <div className='text-white bg-opacity-20 flex items-center justify-between w-full px-10 py-3 rounded-lg' >
+            <p className='underline text-lg min-w-[200px] cursor-pointer'>Username</p>
+            <p className='text-opacity-60'>Status</p>
+            <div className='max-w-[450px] flex-1 flex items-center justify-between text-center'>
+              <p>Advanced</p>
+              <p>Intermediate</p>
+              <p>Fundamental</p>
+            </div>
+          </div>
+          {analyticsData.map(
+            (user, idx) => <StudentStrip submissionData={recentSubmissions[idx]} data={user} key={idx} />
+          )}
         </div>
-        {analyticsData.map(
-          (user, idx) => <StudentStrip submissionData={recentSubmissions[idx]} data={user} key={idx} />
-        )}
-      </div>
-    </>
+      </>
+      : <h1 className='text-center text-white text-3xl mt-20 font-[600]'>No Student is Added</h1>
   )
 }
 

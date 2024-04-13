@@ -25,55 +25,18 @@ const Homepage = () => {
       setStudentsData(await stIds["data"]?.reverse())
     }
   }
-  const addStudent = async (studentId) => {
-    const isStudentAdded = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/user/addstudent/`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': "application/json",
-      },
-      body: JSON.stringify({
-        email: user.email,
-        input: studentId
-      })
-    })
-    const studentAdded = await isStudentAdded.json()
-    if (studentAdded.success) {
-      toast.success("Student Added")
-      fetchStudentsData()
-    }
-    else
-      toast.error("Student Already Added or not Found")
-  }
-
-  const deleteUser = async (email, username) => {
-    const deletedUser = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/user/deletestudent/`, {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        email: email,
-        username: username
-      })
-    })
-    const studentDeleted = await deletedUser.json()
-    if (studentDeleted.success) {
-      toast.success("Student Deleted")
-      fetchStudentsData()
-    }
-    else
-      toast.error(studentDeleted.message)
-  }
+  
   useEffect(() => {
-    fetchStudentsData()
+    fetchStudentsData();
+    console.log(studentsData);
   }, [])
   return (
     <div>
-      <Herosection addStudent={addStudent} />
+      <Herosection />
       {
         studentsData?.length === 0 ?
-          <h1>No Student is Added</h1> :
-          <StudentCards studentsData={studentsData} deleteUser={deleteUser} />}
+          <h1 className='text-center text-white text-3xl mt-20 font-[600]'>No Student is Added</h1> :
+          <StudentCards studentsData={studentsData} />}
     </div>
   )
 }

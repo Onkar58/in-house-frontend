@@ -5,6 +5,8 @@ import MainInfo from './StudentInfo/MainInfo'
 import RankRating from './StudentInfo/RankRating'
 import SkillsLang from './StudentInfo/SkillsLang'
 import RecentSubmissions from './StudentInfo/RecentSubmissions'
+import { useUserAuth } from '../providers/UserContext'
+
 
 const StudentInfo = () => {
     const location = useLocation()
@@ -12,6 +14,8 @@ const StudentInfo = () => {
     const [studentData, setStudentData] = useState({})
     const [skillsData, setSkillsData] = useState({})
     const [loading, setLoading] = useState(true)
+    const [isStudentPresent, setIsStudentPresent] = useState(false)
+    const { user } = useUserAuth()
     const fetchStudentData = async () => {
         const data = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}${location.pathname}`,
             {
@@ -54,9 +58,73 @@ const StudentInfo = () => {
             setSkillsData(data.message)
         }
     }
+
+    const addStudent = async () => {
+        if (!user){
+            toast("Login to Add Student", {
+                icon: "😀"
+            })
+            navigate("/login")
+        }
+        const isStudentAdded = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/user/addstudent/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': "application/json",
+            },
+            body: JSON.stringify({
+                email: user.email,
+                input: location.pathname.split("/")[2]
+            })
+        })
+        const studentAdded = await isStudentAdded.json()
+        if (studentAdded.success) {
+            toast.success("Student Added")
+        }
+    }
+    const checkUser = async () => {
+        if (!user){
+            return
+        }
+        const isStudentPresent = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/user/checkstudent/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': "application/json",
+            },
+            body: JSON.stringify({
+                email: user.email,
+                username: location.pathname.split("/")[2].toLowerCase()
+            })
+        })
+        const studentAdded = await isStudentPresent.json()
+        if (studentAdded.success) {
+            setIsStudentPresent(true)
+        }
+    }
+
+    const deleteUser = async (email, username) => {
+        const deletedUser = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/user/deletestudent/`, {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            email: email,
+            username: username
+          })
+        })
+        const studentDeleted = await deletedUser.json()
+        if (studentDeleted.success) {
+          toast.success("Student Deleted")
+          fetchStudentsData()
+        }
+        else
+          toast.error(studentDeleted.message)
+      }
+
     useEffect(() => {
         fetchStudentData()
         fetchSkills()
+        checkUser()
     }, [])
     return (
         loading ?
@@ -68,10 +136,10 @@ const StudentInfo = () => {
             </svg> :
             studentData.profileData ?
                 <>
-                    <MainInfo info={studentData.profileData} />
+                    <MainInfo info={studentData.profileData} addStudent={addStudent} deleteUser={deleteUser} isStudentPresent={isStudentPresent} />
                     <RankRating rankRatings={studentData.rankRatings} questions={studentData.questions} />
                     <SkillsLang skills={skillsData.skillsData} />
-                    <RecentSubmissions  data={skillsData.recentSubmissions.recentSubmissionList}/>
+                    <RecentSubmissions data={skillsData.recentSubmissions.recentSubmissionList} />
                 </> :
                 <div className='mt-40 w-full flex items-center flex-col gap-10'>
                     <h1 className='text-4xl font-[600] text-white opacity-50 text-center my-auto'>No Student Found</h1>

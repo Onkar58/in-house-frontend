@@ -26,15 +26,18 @@ const Leaderboard = () => {
     }
     setLoading(false)
   }
-  useMemo(() => getData(), [])
+  useEffect(() => {
+    getData()
+  }, [])
 
   return (
     <div className='mt-20'>
-      {loading && <Loader  />}
+      {loading && <Loader />}
       <div className='overflow-x-scroll flex items-center p-5 gap-10 sm:justify-evenly' id="rankCards">
-        {studentData.slice(0, 3).map((item, index) => {
+        {studentData.length > 0 ? studentData.slice(0, 3).map((item, index) => {
           return <RankCard data={item} key={index} position={index + 1} />
-        })}
+        }) : <h1 className='text-center text-white text-3xl mt-20 font-[600]'>No Student is Added</h1>
+      }
       </div>
       <div className='mt-10 flex flex-col gap-10'>
         {
