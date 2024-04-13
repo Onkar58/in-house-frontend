@@ -2,7 +2,6 @@ import React, { useEffect, useMemo, useState } from 'react'
 import RankCard from './Leaderboard/RankCard'
 import RankStrip from './Leaderboard/RankStrip'
 import Loader from "./Loader"
-import { auth } from '../utils/firebaseConfig'
 import { useUserAuth } from '../providers/UserContext'
 
 const Leaderboard = () => {

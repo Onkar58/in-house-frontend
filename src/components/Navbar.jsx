@@ -67,7 +67,7 @@ const Navbar = () => {
         setShowPopUp(!showPopUp)
     }
     return (
-        <nav className='fixed z-10 top-0 left-1/2 -translate-x-1/2 w-screen md:w-screen lg:w-[90%] xl:w-4/5 bg-white flex items-center justify-between p-3 gap-5 rounded-b-lg'>
+        <nav className='fixed z-10 top-0 left-1/2 -translate-x-1/2 w-screen md:w-screen lg:w-[90%] xl:w-4/5 bg-[#d9d9d9] flex items-center justify-between p-3 gap-5 rounded-b-lg'>
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 50 50" className='size-6 sm:hidden' onClick={() => setIsMenuOpen(true)}>
                 <path d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z"></path>
             </svg>
@@ -99,7 +99,7 @@ const Navbar = () => {
 
                 <span>litgit</span>
             </div>
-            <div className={`fixed ${isMenuOpen ? "translate-x-0" : "-translate-x-full"} sm:static transition-all h-screen sm:h-fit bg-white top-0 left-0 flex flex-col sm:flex-row p-10 py-20 sm:p-2 sm:py-2 gap-10 `}>
+            <div className={`fixed ${isMenuOpen ? "translate-x-0" : "-translate-x-full"} sm:static transition-all h-screen sm:h-fit bg-[#d9d9d9] top-0 left-0 flex flex-col sm:flex-row p-10 py-20 sm:p-2 sm:py-2 gap-10 `}>
                 {links.map((link, index) => (
                     <NavLink to={link.link} key={index} onClick={() => setActive(link.link)} className={`hover:border-b-[2px] hover:border-primary ${active === link.link ? 'border-b-[2px] border-primary' : ''} ${"flex"}`}>
                         {/* {link.svg} */}
@@ -126,7 +126,7 @@ const Navbar = () => {
                 ))
                 }
 
-                {showPopUp && <div className='absolute w-max bg-white shadow-lg rounded-md flex flex-col items-center gap-3 p-3 top-14 right-0'>
+                {showPopUp && <div className='absolute w-max bg-[#d9d9d9] shadow-lg rounded-md flex flex-col items-center gap-3 p-3 top-14 right-0'>
                     <button className='p-2 px-3 cursor-pointer' onClick={() => { navigator("/profile"); setShowPopUp(false) }}>Go to Profile</button>
                     <button className="cursor-pointer" onClick={() => signOut(auth)}>Sign Out</button>
                 </div>}

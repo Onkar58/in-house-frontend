@@ -18,7 +18,7 @@ const ActiveUsers = ({ recentSubmissions }) => {
     const strokeLength2 = circumference / 100 * inactive
 
     return (
-        <div className='bg-white bg-opacity-20 p-10 rounded-lg'>
+        <div className='bg-[#d9d9d9] bg-opacity-10 p-10 rounded-lg'>
             <h1 className='text-3xl text-white mb-10'>Active and Inactice Users</h1>
             <div className='flex justify-around items-center mb-5 text-xl text-white text-center text-opacity-70'>
                 <section>

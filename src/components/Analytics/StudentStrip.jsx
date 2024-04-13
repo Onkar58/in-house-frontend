@@ -17,7 +17,7 @@ const StudentStrip = ({ submissionData, data }) => {
   }, levels[0]);
   const navigate = useNavigate()
   return (
-    <div className='bg-white text-white bg-opacity-20 flex items-center justify-between w-full px-10 py-3 rounded-lg' >
+    <div className='bg-[#d9d9d9] text-white bg-opacity-10 flex items-center justify-between w-full px-10 py-3 rounded-lg' >
       <p className='underline text-lg min-w-[200px] cursor-pointer' onClick={() => navigate(`/student/${data.username}`)}>{data.username}</p>
       <p className='text-opacity-60'>{status}</p>
       <div className='max-w-[450px] flex-1 flex items-center justify-between'>

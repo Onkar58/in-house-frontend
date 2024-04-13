@@ -1,12 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 const spanStyle = "underline cursor-pointer "
 
 const MainInfo = ({ info, addStudent, deleteStudent, isStudentPresent }) => {
 
   return (
-    <div className='relative flex items-center justify-evenly w-full mt-20 bg-white bg-opacity-20 p-10 rounded-lg'>
+    <div className='relative flex items-center justify-evenly w-full mt-20 bg-[#d9d9d9] bg-opacity-10 p-10 rounded-lg'>
       <button
         title={isStudentPresent ?  "Delete Student" : "Add Student"}
         className='absolute top-0 right-0 bg-green-400 bg-opacity-80 px-2 aspect-square rounded-md text-white text-2xl font-[600] cursor-pointer '

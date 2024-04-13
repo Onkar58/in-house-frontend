@@ -42,7 +42,7 @@ const Analytics = () => {
             {!loading && <AllQuestions inputData={analyticsData} />}
             <ActiveUsers recentSubmissions={recentSubmissions} />
           </div>
-          <div className='text-white bg-opacity-20 flex items-center justify-between w-full px-10 py-3 rounded-lg' >
+          <div className='text-white bg-opacity-10 flex items-center justify-between w-full px-10 py-3 rounded-lg' >
             <p className='underline text-lg min-w-[200px] cursor-pointer'>Username</p>
             <p className='text-opacity-60'>Status</p>
             <div className='max-w-[450px] flex-1 flex items-center justify-between text-center'>

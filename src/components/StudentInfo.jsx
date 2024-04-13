@@ -79,6 +79,7 @@ const StudentInfo = () => {
         const studentAdded = await isStudentAdded.json()
         if (studentAdded.success) {
             toast.success("Student Added")
+            setIsStudentPresent(true)
         }
     }
     const checkUser = async () => {
@@ -101,21 +102,21 @@ const StudentInfo = () => {
         }
     }
 
-    const deleteUser = async (email, username) => {
+    const deleteUser = async () => {
         const deletedUser = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/user/deletestudent/`, {
           method: 'POST',
           headers: {
             "Content-Type": "application/json"
           },
           body: JSON.stringify({
-            email: email,
-            username: username
+            email: user.email,
+            username: location.pathname.split("/")[2].toLowerCase()
           })
         })
         const studentDeleted = await deletedUser.json()
         if (studentDeleted.success) {
           toast.success("Student Deleted")
-          fetchStudentsData()
+          setIsStudentPresent(false)
         }
         else
           toast.error(studentDeleted.message)
@@ -136,7 +137,7 @@ const StudentInfo = () => {
             </svg> :
             studentData.profileData ?
                 <>
-                    <MainInfo info={studentData.profileData} addStudent={addStudent} deleteUser={deleteUser} isStudentPresent={isStudentPresent} />
+                    <MainInfo info={studentData.profileData} addStudent={addStudent} deleteStudent={deleteUser} isStudentPresent={isStudentPresent} />
                     <RankRating rankRatings={studentData.rankRatings} questions={studentData.questions} />
                     <SkillsLang skills={skillsData.skillsData} />
                     <RecentSubmissions data={skillsData.recentSubmissions.recentSubmissionList} />
