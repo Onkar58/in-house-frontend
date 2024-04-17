@@ -1,6 +1,7 @@
 import Leaderboard from "./components/Leaderboard"
 import Login from "./components/Login"
 import Wrapper from "./components/Wrapper"
+import Wrapper2 from "./components/Wrapper2"
 import { Routes, Route } from 'react-router-dom'
 import SignUp from "./components/SignUp"
 import { ProtectedRoutes, UnProtectedRoutes } from "./components/ProtectedRoutes"
@@ -27,8 +28,8 @@ function App() {
           <Route path="/profile" element={<Wrapper children={<Profile />} />} />
         </Route>
         <Route element={<UnProtectedRoutes />} >
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Wrapper2 children={<Login />} />} />
+          <Route path="/signup" element={<Wrapper2 children={<SignUp />} />} />
       </Route>
       <Route path="/student/*" element={<Wrapper children={<StudentInfo />} />}/>
     </Routes>
