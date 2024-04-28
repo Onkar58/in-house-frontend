@@ -15,7 +15,7 @@
     <meta name="language" content="English">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow"> <!-- Google-specific indexing instructions -->
-    <meta name="bingbot" content="index, follow"> <!-- Bing-specific indexing instructions -->
+    <meta name="bingbot" content="index, folow"> <!-- Bing-specific indexing instructions -->
     <meta name="rating" content="general">
     <meta name="referrer" content="always"> <!-- To specify how referrer information is passed -->
     <meta name="format-detection" content="telephone=no"> <!-- To prevent auto-detection of phone numbers -->
@@ -24,9 +24,22 @@
     <meta name="apple-mobile-web-app-title" content="Your App Title">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./src/index.css">
     <title>LitGit | A dashboard for TGs</title>
   </head>
   <body>
+      <div class="loadingSpinner" id="loader">
+      <svg xmlns="http://www.w3.org/2000/svg" style="height: 200px; width: 200px;" viewBox="0 0 200 200">
+          <linearGradient id="a11">
+          <stop offset="0" stop-color="#FFF" stop-opacity="0"></stop>
+          <stop offset="1" stop-color="#FFF"></stop>
+          </linearGradient>
+          <circle fill="none" stroke="url(#a11)" stroke-width="15" stroke-linecap="round" stroke-dasharray="0 44 0 44 0 44 0 44 0 360" cx="100" cy="100" r="70" transform-origin="center">
+          <animateTransform type="rotate" attributeName="transform" calcMode="discrete" dur="2" values="360;324;288;252;216;180;144;108;72;36" repeatCount="indefinite">
+          </animateTransform>
+          </circle>
+      </svg>
+      </div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
