@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import { AgChartsReact } from "ag-charts-react"
-import Loader from '../../Loader';
+import { AgChartsReact } from "ag-charts-react";
+import React, { useState } from "react";
 
 var myTheme = {
-  baseTheme: 'ag-default-dark',
+  baseTheme: "ag-default-dark",
   palette: {
-    fills: ['#4339F2', '#34B53A', '#FFB200'],
-    strokes: ['black'],
+    fills: ["#4339F2", "#34B53A", "#FFB200"],
+    strokes: ["black"],
   },
   overrides: {
     common: {
@@ -15,64 +14,67 @@ var myTheme = {
       },
     },
     bar: {
-      series: {
-
-      },
+      series: {},
     },
   },
 };
 
-
 const AllQuestions = ({ inputData }) => {
   const getData = () => {
-    return inputData.map(user => (
+    return inputData.map((user) => ({
+      username: user?.username,
+      fundamental: user?.fundamental?.reduce(
+        (total, tag) => total + tag.problemsSolved,
+        0,
+      ),
+      intermediate: user?.intermediate?.reduce(
+        (total, tag) => total + tag.problemsSolved,
+        0,
+      ),
+      advanced: user?.advanced?.reduce(
+        (total, tag) => total + tag.problemsSolved,
+        0,
+      ),
+    }));
+  };
+  const [options, setOptions] = useState({
+    title: {
+      text: "Students Skillsets",
+    },
+    data: getData(),
+    series: [
       {
-        "username": user?.username,
-        "fundamental": user?.fundamental?.reduce((total, tag) => total + tag.problemsSolved, 0),
-        "intermediate": user?.intermediate?.reduce((total, tag) => total + tag.problemsSolved, 0),
-        "advanced": user?.advanced?.reduce((total, tag) => total + tag.problemsSolved, 0),
-      }
-    ))
-  }
-  const [options, setOptions] = useState(
-    {
-      title: {
-        text: "Students Skillsets"
+        type: "bar",
+        xKey: "username",
+        yKey: "fundamental",
+        yName: "fundamental",
+        stacked: true,
       },
-      data: getData(),
-      series: [
-        {
-          type: "bar",
-          xKey: "username",
-          yKey: "fundamental",
-          yName: "fundamental",
-          stacked: true,
-        },
-        {
-          type: "bar",
-          xKey: "username",
-          yKey: "intermediate",
-          yName: "intermediate",
-          stacked: true,
-        },
-        {
-          type: "bar",
-          xKey: "username",
-          yKey: "advanced",
-          yName: "advanced",
-          stacked: true,
-        },
-      ],
-      theme: myTheme,
-      background: {
-        fill: "rgba(255,255,255,0.2)"
-      }
-    });
+      {
+        type: "bar",
+        xKey: "username",
+        yKey: "intermediate",
+        yName: "intermediate",
+        stacked: true,
+      },
+      {
+        type: "bar",
+        xKey: "username",
+        yKey: "advanced",
+        yName: "advanced",
+        stacked: true,
+      },
+    ],
+    theme: myTheme,
+    background: {
+      fill: "rgba(255,255,255,0.2)",
+    },
+  });
   return (
-    <div className='w-1/2 text-red-500'>
+    <div className="w-1/2 text-red-500">
       <AgChartsReact options={options} />
     </div>
-  )
-}
+  );
+};
 
-export default AllQuestions
+export default AllQuestions;
