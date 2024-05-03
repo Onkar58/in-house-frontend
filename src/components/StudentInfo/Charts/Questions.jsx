@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { AgChartsReact } from "ag-charts-react"
 import "ag-charts-enterprise";
+import { AgChartsReact } from "ag-charts-react";
+import React, { useState } from 'react';
 
 var myTheme = {
   baseTheme: 'ag-default-dark',

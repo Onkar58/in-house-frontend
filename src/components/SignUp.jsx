@@ -1,10 +1,8 @@
-import React, { useRef, useState } from 'react'
-import { auth } from '../utils/firebaseConfig';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { toBase64 } from '../utils/functions';
+import defaultImg from "../assets/defaultImg.jpeg";
 import { signUpUser } from '../utils/authFunctions';
-import defaultImg from "../assets/defaultImg.jpeg"
+import { toBase64 } from '../utils/functions';
 
 
 

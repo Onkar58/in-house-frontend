@@ -1,28 +1,27 @@
-import React, { useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
-import dummyImg1 from "../assets/dummyProfile.png"
-import dummyImg2 from "../assets/dummyProfile2.png"
-import dummyImg3 from "../assets/dummyProfile3.png"
-import { signOut } from 'firebase/auth'
-import { auth } from '../utils/firebaseConfig'
+import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import dummyImg1 from "../assets/dummyProfile.png";
+import dummyImg2 from "../assets/dummyProfile2.png";
+import dummyImg3 from "../assets/dummyProfile3.png";
+import { signOut } from "firebase/auth";
+import { auth } from "../utils/firebaseConfig";
 
 const profiles = [
-    {
-        name: "John Doe",
-        img: dummyImg1,
-        // active: true,
-    },
-    {
-        name: "Jane Doe",
-        img: dummyImg2
-    },
-    {
-        name: "John Smith",
-        img: dummyImg3,
-        active: true,
-    }
-]
-
+  {
+    name: "John Doe",
+    img: dummyImg1,
+    // active: true,
+  },
+  {
+    name: "Jane Doe",
+    img: dummyImg2,
+  },
+  {
+    name: "John Smith",
+    img: dummyImg3,
+    active: true,
+  },
+];
 
 const links = [
     {
@@ -129,7 +128,6 @@ const Navbar = ({ setShowWalkThrough }) => {
     )
 }
 
-export default Navbar
-
+export default Navbar;
 
 //TODO: Change the navbar to 80% width on all screens and 100% on mobile
