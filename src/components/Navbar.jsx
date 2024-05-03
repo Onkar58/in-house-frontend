@@ -28,6 +28,7 @@ const links = [
     {
         name: 'Home',
         link: '/',
+        id: "homeLink",
         svg: <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12.1797 27.6978V23.6208C12.1797 22.5801 13.0295 21.7364 14.0779 21.7364H17.9101C18.4136 21.7364 18.8964 21.935 19.2524 22.2884C19.6083 22.6418 19.8083 23.1211 19.8083 23.6208V27.6978C19.8052 28.1305 19.9761 28.5465 20.2831 28.8536C20.5902 29.1607 21.008 29.3334 21.4439 29.3334H24.0584C25.2795 29.3365 26.4516 28.8571 27.3162 28.0011C28.1808 27.145 28.6666 25.9827 28.6666 24.7705V13.1558C28.6666 12.1766 28.2294 11.2478 27.4728 10.6196L18.5787 3.56785C17.0315 2.33144 14.8148 2.37136 13.3138 3.66266L4.62266 10.6196C3.8303 11.2293 3.35672 12.1609 3.33331 13.1558V24.7586C3.33331 27.2852 5.39649 29.3334 7.94154 29.3334H10.4964C11.4016 29.3334 12.1373 28.6083 12.1439 27.7097L12.1797 27.6978Z" fill="white" />
         </svg>
@@ -35,6 +36,7 @@ const links = [
     {
         name: 'Leaderboard',
         link: '/leaderboard',
+        id:"leaderboardLink",
         svg: <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M20.1747 2.67041C20.1147 3.0454 20.0847 3.4204 20.0847 3.79539C20.0847 7.17034 22.8147 9.8988 26.1746 9.8988C26.5496 9.8988 26.9096 9.8553 27.2846 9.7953V21.8986C27.2846 26.985 24.2846 30 19.1847 30H8.10138C2.99995 30 0 26.985 0 21.8986V10.8003C0 5.70037 2.99995 2.67041 8.10138 2.67041H20.1747ZM20.4762 11.7903C20.0697 11.7453 19.6662 11.9253 19.4247 12.2553L15.7963 16.9502L11.6398 13.6802C11.3848 13.4852 11.0848 13.4088 10.7848 13.4402C10.4863 13.4852 10.2163 13.6487 10.0348 13.8887L5.59642 19.6652L5.50492 19.8002C5.24992 20.2786 5.36992 20.8936 5.81991 21.2251C6.02991 21.3601 6.25491 21.4501 6.5099 21.4501C6.8564 21.4651 7.18489 21.2836 7.39489 21.0001L11.1598 16.1537L15.4348 19.3652L15.5698 19.4537C16.0498 19.7087 16.6497 19.5902 16.9947 19.1387L21.3297 13.5452L21.2697 13.5752C21.5097 13.2453 21.5547 12.8253 21.3897 12.4503C21.2262 12.0753 20.8647 11.8203 20.4762 11.7903ZM26.3848 0C28.3797 0 29.9997 1.61998 29.9997 3.61495C29.9997 5.60992 28.3797 7.22989 26.3848 7.22989C24.3898 7.22989 22.7698 5.60992 22.7698 3.61495C22.7698 1.61998 24.3898 0 26.3848 0Z" fill="#B8BED9" />
         </svg>
@@ -42,6 +44,7 @@ const links = [
     {
         name: 'Analytics',
         link: '/analytics',
+        id:"analysisLink",
         svg: <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M20 10.8333V20.4883L13.5767 26.91C13.4202 27.0665 13.3323 27.2787 13.3323 27.5C13.3323 27.7213 13.4202 27.9335 13.5767 28.09C13.7331 28.2465 13.9454 28.3344 14.1667 28.3344C14.388 28.3344 14.6002 28.2465 14.7567 28.09L21.4233 21.4233C21.5007 21.3458 21.562 21.2538 21.6037 21.1526C21.6455 21.0513 21.6669 20.9428 21.6667 20.8333V10.8333C21.6667 10.6123 21.5789 10.4004 21.4226 10.2441C21.2663 10.0878 21.0543 10 20.8333 10C20.6123 10 20.4004 10.0878 20.2441 10.2441C20.0878 10.4004 20 10.6123 20 10.8333ZM34.1667 26.6667H24.1667C23.9456 26.6667 23.7337 26.7545 23.5774 26.9107C23.4211 27.067 23.3333 27.279 23.3333 27.5C23.3333 27.721 23.4211 27.933 23.5774 28.0893C23.7337 28.2455 23.9456 28.3333 24.1667 28.3333H34.1667C34.3877 28.3333 34.5996 28.2455 34.7559 28.0893C34.9122 27.933 35 27.721 35 27.5C35 27.279 34.9122 27.067 34.7559 26.9107C34.5996 26.7545 34.3877 26.6667 34.1667 26.6667Z" fill="#A098AE" />
             <path d="M32.5 10C32.279 10 32.067 10.0878 31.9108 10.2441C31.7545 10.4004 31.6667 10.6123 31.6667 10.8333V11.7467C30.3476 10.1531 28.6922 8.87122 26.8192 7.99294C24.9462 7.11465 22.902 6.66173 20.8334 6.66667C18.5036 6.66672 16.2098 7.24134 14.1552 8.33963C12.1006 9.43792 10.3485 11.026 9.05425 12.9631C7.75997 14.9003 6.96342 17.1268 6.73516 19.4453C6.50689 21.7638 6.85396 24.1029 7.74561 26.2553C8.63727 28.4076 10.046 30.3069 11.847 31.7848C13.648 33.2627 15.7857 34.2736 18.0707 34.728C20.3557 35.1823 22.7175 35.0662 24.9469 34.3897C27.1763 33.7133 29.2044 32.4975 30.8517 30.85C31.0086 30.6929 31.0967 30.4798 31.0965 30.2577C31.0964 30.0357 31.008 29.8228 30.8509 29.6658C30.6937 29.5089 30.4807 29.4208 30.2586 29.421C30.0365 29.4212 29.8236 29.5095 29.6667 29.6667C27.8666 31.4703 25.5583 32.6807 23.0511 33.1357C20.5438 33.5907 17.9574 33.2685 15.6384 32.2124C13.3193 31.1563 11.3785 29.4166 10.0758 27.2265C8.77319 25.0364 8.17102 22.5006 8.34999 19.9586C8.52896 17.4167 9.48053 14.9902 11.0772 13.0043C12.6738 11.0183 14.8393 9.56779 17.2835 8.84703C19.7276 8.12627 22.3337 8.16971 24.7524 8.97153C27.1712 9.77336 29.2871 11.2953 30.8167 13.3333H29.1667C28.9457 13.3333 28.7337 13.4211 28.5774 13.5774C28.4212 13.7337 28.3334 13.9457 28.3334 14.1667C28.3334 14.3877 28.4212 14.5996 28.5774 14.7559C28.7337 14.9122 28.9457 15 29.1667 15H32.5C32.721 15 32.933 14.9122 33.0893 14.7559C33.2456 14.5996 33.3334 14.3877 33.3334 14.1667V10.8333C33.3334 10.6123 33.2456 10.4004 33.0893 10.2441C32.933 10.0878 32.721 10 32.5 10Z" fill="#A098AE" />
@@ -58,7 +61,7 @@ const links = [
 ]
 
 
-const Navbar = () => {
+const Navbar = ({ setShowWalkThrough }) => {
     const navigator = useNavigate()
     const [active, setActive] = useState('/')
     const [isMenuOpen, setIsMenuOpen] = useState(true)
@@ -67,7 +70,7 @@ const Navbar = () => {
         setShowPopUp(!showPopUp)
     }
     return (
-        <nav className='fixed z-10 top-0 left-1/2 -translate-x-1/2 w-screen md:w-screen lg:w-[90%] xl:w-4/5 bg-[#d9d9d9] flex items-center justify-between p-3 gap-5 rounded-b-lg'>
+        <nav id="navbar" className='fixed z-10 top-0 left-1/2 -translate-x-1/2 w-screen md:w-screen lg:w-[90%] xl:w-4/5 bg-[#d9d9d9] flex items-center justify-between p-3 gap-5 rounded-b-lg'>
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 50 50" className='size-6 sm:hidden' onClick={() => setIsMenuOpen(true)}>
                 <path d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z"></path>
             </svg>
@@ -79,29 +82,28 @@ const Navbar = () => {
                     <path d="M35.5193 16.8835L36.1066 11.7327L31.6438 10.273L24.8281 0.46875L31.6003 12.6262L31.403 16.4192L35.5193 16.8835Z" fill="url(#paint3_linear_151_5108)" />
                     <defs>
                         <linearGradient id="paint0_linear_151_5108" x1="-0.0476599" y1="3.39105" x2="2289.65" y2="924.784" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#EE201C" />
-                            <stop offset="1" stop-color="#F7F3EC" />
+                            <stop stopColor="#EE201C" />
+                            <stop offset="1" stopColor="#F7F3EC" />
                         </linearGradient>
                         <linearGradient id="paint1_linear_151_5108" x1="7.16632" y1="7.29169" x2="1541.21" y2="624.603" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#EE201C" />
-                            <stop offset="1" stop-color="white" />
+                            <stop stopColor="#EE201C" />
+                            <stop offset="1" stopColor="white" />
                         </linearGradient>
                         <linearGradient id="paint2_linear_151_5108" x1="7.16773" y1="7.28805" x2="2433.28" y2="983.571" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#EE201C" />
-                            <stop offset="1" stop-color="white" />
+                            <stop stopColor="#EE201C" />
+                            <stop offset="1" stopColor="white" />
                         </linearGradient>
                         <linearGradient id="paint3_linear_151_5108" x1="21.8026" y1="15.1994" x2="1092.81" y2="446.181" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#EE201C" />
-                            <stop offset="1" stop-color="#F3F3F1" />
+                            <stop stopColor="#EE201C" />
+                            <stop offset="1" stopColor="#F3F3F1" />
                         </linearGradient>
                     </defs>
                 </svg>
-
                 <span>litgit</span>
             </div>
             <div className={`fixed ${isMenuOpen ? "translate-x-0" : "-translate-x-full"} sm:static transition-all h-screen sm:h-fit bg-[#d9d9d9] top-0 left-0 flex flex-col sm:flex-row p-10 py-20 sm:p-2 sm:py-2 gap-10 `}>
                 {links.map((link, index) => (
-                    <NavLink to={link.link} key={index} onClick={() => setActive(link.link)} className={`hover:border-b-[2px] hover:border-primary ${active === link.link ? 'border-b-[2px] border-primary' : ''} ${"flex"}`}>
+                    <NavLink to={link.link} id={link.id} key={index} onClick={() => setActive(link.link)} className={`hover:border-b-[2px] hover:border-primary ${active === link.link ? 'border-b-[2px] border-primary' : ''} ${"flex"}`}>
                         {/* {link.svg} */}
                         <span className='text-md font-[500]'>{link.name}</span>
                     </NavLink>
@@ -109,35 +111,19 @@ const Navbar = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" className='absolute top-1 right-1 size-10 sm:hidden' viewBox="0 0 64 64" onClick={() => setIsMenuOpen(false)}>
                     <path d="M 32 10 C 19.85 10 10 19.85 10 32 C 10 44.15 19.85 54 32 54 C 44.15 54 54 44.15 54 32 C 54 19.85 44.15 10 32 10 z M 32 14 C 41.941 14 50 22.059 50 32 C 50 41.941 41.941 50 32 50 C 22.059 50 14 41.941 14 32 C 14 22.059 22.059 14 32 14 z M 25.636719 23.636719 C 25.124969 23.636719 24.613156 23.832156 24.222656 24.222656 C 23.441656 25.003656 23.441656 26.269781 24.222656 27.050781 L 29.171875 32 L 24.222656 36.949219 C 23.441656 37.730219 23.441656 38.996344 24.222656 39.777344 C 25.003656 40.558344 26.269781 40.558344 27.050781 39.777344 L 32 34.828125 L 36.949219 39.777344 C 37.730219 40.558344 38.996344 40.558344 39.777344 39.777344 C 40.558344 38.996344 40.558344 37.730219 39.777344 36.949219 L 34.828125 32 L 39.777344 27.050781 C 40.558344 26.269781 40.558344 25.003656 39.777344 24.222656 C 38.996344 23.441656 37.730219 23.441656 36.949219 24.222656 L 32 29.171875 L 27.050781 24.222656 C 26.660281 23.832156 26.148469 23.636719 25.636719 23.636719 z"></path>
                 </svg>
-
-                {/* <button className=' mb-[20%] flex items-center justify-center text-lg font-[600] border-primary border-[2px] rounded-md w-fit py-1.5 px-4 self-center'>
-                    <span>Logout </span>
-                    <svg xmlns="http://www.w3.org/2000/svg" className='size-6' viewBox="0 0 24 24" id="logout"><path d="M21.9 10.6c-.1-.1-.1-.2-.2-.3l-2-2c-.4-.4-1-.4-1.4 0s-.4 1 0 1.4l.3.3H16c-.6 0-1 .4-1 1s.4 1 1 1h2.6l-.3.3c-.4.4-.4 1 0 1.4.2.2.5.3.7.3s.5-.1.7-.3l2-2c.1-.1.2-.2.2-.3.1-.3.1-.5 0-.8z"></path><path d="M17 14c-.6 0-1 .4-1 1v1c0 .6-.4 1-1 1h-1V8.4c0-1.3-.8-2.4-1.9-2.8L10.5 5H15c.6 0 1 .4 1 1v1c0 .6.4 1 1 1s1-.4 1-1V6c0-1.7-1.3-3-3-3H5c-.1 0-.2 0-.3.1-.1 0-.2.1-.2.1l-.1.1c-.1 0-.2.1-.2.2v.1c-.1 0-.2.1-.2.2V18c0 .4.3.8.6.9l6.6 2.5c.2.1.5.1.7.1.4 0 .8-.1 1.1-.4.5-.4.9-1 .9-1.6V19h1c1.7 0 3-1.3 3-3v-1c.1-.5-.3-1-.9-1zM6 17.3V5.4l5.3 2c.4.2.7.6.7 1v11.1l-6-2.2z"></path></svg>
-                </button> */}
             </div>
             <div className='relative min-w-fit flex items-center gap-2'>
 
-                {profiles.map((profile, index) => (
-                    profile.active &&
-                    <div key={index} className={`relative cursor-pointer`} onClick={togglePopup}>
-                        <img src={profile.img} alt={profile.name} className='size-8 sm:size-10 rounded-full' />
-                        <span className='absolute bottom-0 left-0 w-3 h-3  bg-[#0f0] rounded-full'></span>
-                    </div>
-                ))
-                }
+                <div id='profile' className={`relative cursor-pointer`} onClick={togglePopup}>
+                    <img src={profiles[2].img} alt={profiles[2].name} className='size-8 sm:size-10 rounded-full' />
+                    <span className='absolute bottom-0 left-0 w-3 h-3  bg-[#0f0] rounded-full'></span>
+                </div>
 
-                {showPopUp && <div className='absolute w-max bg-[#d9d9d9] shadow-lg rounded-md flex flex-col items-center gap-3 p-3 top-14 right-0'>
+                {showPopUp && <div onBlur={() => setShowPopUp(false)} className='absolute w-max bg-[#d9d9d9] shadow-lg rounded-md flex flex-col items-center gap-3 p-3 top-14 right-0'>
                     <button className='p-2 px-3 cursor-pointer' onClick={() => { navigator("/profile"); setShowPopUp(false) }}>Go to Profile</button>
                     <button className="cursor-pointer" onClick={() => signOut(auth)}>Sign Out</button>
+                    <button className="cursor-pointer" onClick={() => { setShowPopUp(false); setShowWalkThrough(true); }}>Walkthrough</button>
                 </div>}
-
-                {/* <div className='relative'> */}
-                {/* <button className='bg-primary size-8 sm:size-10 rounded-full '>
-                    <svg width="16" height="16" className='mx-auto my-0' viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fillRule="evenodd" clipRule="evenodd" d="M15 7H9V1C9 0.447 8.552 0 8 0C7.448 0 7 0.447 7 1V7H1C0.448 7 0 7.447 0 8C0 8.553 0.448 9 1 9H7V15C7 15.553 7.448 16 8 16C8.552 16 9 15.553 9 15V9H15C15.552 9 16 8.553 16 8C16 7.447 15.552 7 15 7Z" fill="white" />
-                    </svg>
-                </button> */}
-                {/* </div> */}
             </div>
         </nav>
     )

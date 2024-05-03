@@ -3,7 +3,7 @@ import Skilltag from "./Skilltag"
 
 const SkillsLang = ({ skills }) => {
   return (
-    <div className='flex flex-col gap-10'>
+    <div id="concepts" className='flex flex-col gap-10'>
       <div>
         <h1 className='text-lg text-white my-5'>Advanced</h1>
         <section className='w-full flex flex-wrap gap-3 justify-start items-center'>

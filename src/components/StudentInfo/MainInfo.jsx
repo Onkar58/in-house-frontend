@@ -5,9 +5,10 @@ const spanStyle = "underline cursor-pointer "
 const MainInfo = ({ info, addStudent, deleteStudent, isStudentPresent }) => {
 
   return (
-    <div className='relative flex items-center justify-evenly w-full mt-20 bg-[#d9d9d9] bg-opacity-10 p-10 rounded-lg'>
+    <div id="profileInfo" className='relative flex items-center justify-evenly w-full mt-20 bg-[#d9d9d9] bg-opacity-10 p-10 rounded-lg'>
       <button
-        title={isStudentPresent ?  "Delete Student" : "Add Student"}
+        id="addDeleteBtn"
+        title={isStudentPresent ? "Delete Student" : "Add Student"}
         className='absolute top-0 right-0 bg-green-400 bg-opacity-80 px-2 aspect-square rounded-md text-white text-2xl font-[600] cursor-pointer '
         onClick={isStudentPresent ? deleteStudent : addStudent}>
         {

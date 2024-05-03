@@ -8,7 +8,7 @@ const spanStyling = "mx-2 text-3xl"
 const RankRating = ({ rankRatings, questions }) => {
   return (
     <div className='bg-[#d9d9d9] bg-opacity-10 w-full rounded-lg p-10 mt-20 flex items-center'>
-      <div className='w-1/2'><Questions  questionsInfo={questions}/></div>
+      <div className='w-1/2'><Questions questionsInfo={questions}/></div>
       <div className='w-1/2'>
         <div className='pl-10' >
           <h1 className={h1Styles}>Rank: <span className={spanStyling}>{rankRatings.ranking}</span></h1>

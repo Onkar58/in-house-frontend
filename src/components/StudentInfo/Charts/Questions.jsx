@@ -52,7 +52,7 @@ const Questions = ({ questionsInfo }) => {
   });
 
   return (
-    <div className='w-full relative'>
+    <div id="questionsChart" className='w-full relative'>
       <p className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[90%] text-white text-xl' title='Total Questions Solved'>{questionsInfo.all.solved}</p>
       <AgChartsReact options={options} />;
     </div>
