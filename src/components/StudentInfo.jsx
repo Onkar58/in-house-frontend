@@ -37,10 +37,12 @@ const StudentInfo = () => {
       });
       navigate("/login");
     }
-    const isStudentAdded = await _axios(`/user/addstudent/`, {
+    console.log(user.email);
+    const isStudentAdded = await _axios.post(`/user/addstudent/`, {
       email: user.email,
       input: location.pathname.split("/")[2],
     });
+    console.log(isStudentAdded);
     if (isStudentAdded.success) {
       toast.success("Student Added");
       setIsStudentPresent(true);
@@ -50,7 +52,7 @@ const StudentInfo = () => {
     if (!user) {
       return;
     }
-    const isStudentPresent = await _axios(`/user/checkstudent/`, {
+    const isStudentPresent = await _axios.post(`/user/checkstudent/`, {
       email: user.email,
       username: location.pathname.split("/")[2].toLowerCase(),
     });
@@ -60,7 +62,7 @@ const StudentInfo = () => {
   };
 
   const deleteUser = async () => {
-    const deletedUser = await _axios(`/user/deletestudent/`, {
+    const deletedUser = await _axios.post(`/user/deletestudent/`, {
       email: user.email,
       username: location.pathname.split("/")[2].toLowerCase(),
     });

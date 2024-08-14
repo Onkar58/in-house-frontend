@@ -2,7 +2,7 @@ import axios from "axios";
 
 const _axios = axios.create({
   baseURL: import.meta.env.VITE_REACT_APP_BACKEND_URL,
-  timeout: 5000,
+  timeout: 10000,
 });
 // _axios.defaults.timeout = 5000;
 _axios.interceptors.request.use(
